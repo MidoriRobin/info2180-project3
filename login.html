@@ -1,0 +1,33 @@
+<html>
+    <head>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="styles/style.css"/>
+	</head>
+	<body class="container">
+	    <div id="header">
+	        <p>HireME</p>
+	    </div>
+	    <div id ="sidebar">
+	        <img src="Icons/house.png" width="20" height="20"> Home  <br/> 
+	        <img src="Icons/person.png" width=" 20" height=" 20"> Add User   <br/> 
+	        <img src="Icons/notes.png" width=" 20" height=" 20"> New Job   <br/> 
+	        <img src="Icons/power.png" width=" 20" height=" 20"> Logout   <br/> 
+	    </div>
+	    <div id="main">
+	        <p><h2>User Login</h2></p>
+	        <p> </p>
+	        User Name <br/> 
+			<input type="text" class="edges" name="uname" />
+			<span class="error">* <?php echo $uname;?></span>
+			<p> </p>
+			Password  <br/> 
+			<input type="text" class="edges" name="pass" />
+			<span class="error">* <?php echo $pass;?></span>
+			<p> </p>
+	        <input type="submit" name="submit" class="submit"/>
+	    </div>
+	    <div id="footer">
+	    </div>
+	        
+	</body>
+</html>
