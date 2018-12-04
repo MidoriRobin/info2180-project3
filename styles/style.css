@@ -1,3 +1,5 @@
+
+
 #header {
   grid-area: header;
   background-color: #2b2b2b;
@@ -41,4 +43,15 @@
 body{
   font-family: Calibri;
   font-weight: bold;
+}
+
+/*Adding sumn else to take the regular border off the buttons*/
+button{
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+button:hover{
+  background-color: DodgerBlue;
 }

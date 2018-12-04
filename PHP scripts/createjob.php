@@ -1,17 +1,22 @@
 <?php
 
 #Values from the job creation form should fill here k
-$jtitle =
-$jdesc = 
-$category =
-$cName =
-$location =
-$date = 
+$jtitle = $_POST['jtitle'];
+$jdesc = $_POST['jdes'];
+$category = $_POST['category'];
+$company = $_POST['comp'];
+$cName = $_POST['comp'];
+$location = $_POST['jloc'];
+$date = date('Y-m-d H:i:s');
 
 $host = getenv('IP');
 $username = getenv('C9_USER');
 $password = '';
 $dbname = 'JobsSchema';
+
+if($_POST == ''){
+  echo 'No data recieved';
+}
 
 try{
     $conn = new PDO("mysql: host=$host; dbname=$dbname", $username, $password);
@@ -22,4 +27,6 @@ try{
 } catch(PDOexception $e){
     echo "An error has occured <br/>" . $e->getMessage();
 }
+
+header("location:../HTML/login.html"); 
 ?>
