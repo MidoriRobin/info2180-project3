@@ -1,5 +1,5 @@
 <?php
-
+include login.php;
 #Values from the job creation form should fill here k
 $jtitle = $_POST['jtitle'];
 $jdesc = $_POST['jdes'];

@@ -18,15 +18,17 @@
 	    <div id="main">
 	        <p><h2>User Login</h2></p>
 	        <p> </p>
-	        User Name <br/> 
-			<input type="text" class="edges" name="uname" />
-			<span class="error">* <?php echo $uname;?></span>
-			<p> </p>
-			Password  <br/> 
-			<input type="text" class="edges" name="pass" />
-			<span class="error">* <?php echo $pass;?></span>
-			<p> </p>
-	        <input type="submit" name="submit" class="submit"/>
+	        <form action = "../PHP scripts/login.php" method = "post">
+	        	User Name <br/> 
+				<input type="text" class="edges" name="uname" />
+				<span class="error">* <?php echo $uname;?></span>
+				<p> </p>
+				Password  <br/> 
+				<input type="text" class="edges" name="pass" />
+				<span class="error">* <?php echo $pass;?></span>
+				<p> </p>
+		        <input type="submit" name="submit" class="submit"/>
+	        </form>
 	    </div>
 	    <div id="footer">
 	    </div>
