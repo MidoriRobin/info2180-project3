@@ -1,16 +1,19 @@
 window.onload = function(){
     const mArea = document.getElementById("main");
     const cBttn = document.getElementsByTagName("button");
-    const reqhandle = new XMLHttpRequest;
+    
     const seshStatus = document.getElementById("session");
-    const fInfo = new FormData(document.getElementsByTagName("form"));
-    const subButtn = document.getElementsByName("submit")[0];
+    const fInfo = document.getElementsByTagName("form")[0];
+    const subButtn = document.getElementsByName("login")[0];
+    
+    console.log(subButtn);
     console.log(fInfo);
     console.log(seshStatus.value);
     
     var pgSwitch = (pid) => {
         
-        var page;
+        var reqhandle = new XMLHttpRequest;
+        
         
         reqhandle.onreadystatechange = () =>{
             //Checking ready state
@@ -18,6 +21,7 @@ window.onload = function(){
                 console.log("Success");
                 //document.getElementById("result").innerHTML = searchReq.responseText;
                 mArea.innerHTML = reqhandle.responseText;
+                
             } else{
                 console.log("there is an error");
             }
@@ -38,10 +42,39 @@ window.onload = function(){
             } else if(pid == 3){
                 reqhandle.open('get',"../PHP scripts/logout.php", true);
                 reqhandle.send();
+                window.location.reload(true);
             }
-        }else {
+        } else if(pid == 4){
+            reqhandle.open('get',"../PHP scripts/dashboard.php", true);
+            reqhandle.send();
+            
+        } else if (pid != 4 || seshStatus.value != 'true'){
                 alert("You need to be logged in to do this!!");
+                window.location.reload(true);
         }    
+    }
+    
+    
+    var login = () => {
+        
+        var logReq = new XMLHttpRequest;
+        
+         logReq.onreadystatechange = () =>{
+            //Checking ready state
+            if (logReq.readyState == 4 && logReq.status == 200) {
+                console.log("Success");
+                //document.getElementById("result").innerHTML = searchReq.responseText;
+                mArea.innerHTML = logReq.responseText;
+                alert(logReq.responseText);
+                pgSwitch(0);
+            } else{
+                console.log("there is an error");
+            }
+        }
+        
+        logReq.open('post',"../PHP scripts/login.php", true);
+        logReq.send(new FormData(fInfo));
+        
     }
     
     for(let i = 0; i < cBttn.length; i++){
@@ -52,9 +85,14 @@ window.onload = function(){
         });
     }
     
-    subButtn.addEventListener("click", function(){
-        console.log("event triggered");
+    subButtn.addEventListener("click", function(event){
         
-        });       
+        
+        console.log("event triggered");
+        console.log(fInfo);
+        //event.preventDefault();
+        login();
+        
+    });       
     
 }

@@ -14,14 +14,14 @@ $tempuname = $_POST['uname'];
 $temppass = $_POST['pass'];
 
 //echo $_POST;
-echo $tempuname;
-echo $temppass;
-echo "<br> <br>";
+//echo $tempuname;
+// echo $temppass;
+// echo "<br> <br>";
 
 if(!empty($_POST)){
   
   if(isset($_POST['uname']) && isset($_POST['pass'])){
-    echo 'entering connection statements...';
+    // echo 'entering connection statements...';
     
     $conn = new PDO("mysql: host=$host; dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -30,7 +30,7 @@ if(!empty($_POST)){
     $user = filter_input(INPUT_POST, 'uname', FILTER_SANITIZE_SPECIAL_CHARS);
     $pass = filter_input(INPUT_POST, 'pass', FILTER_SANITIZE_SPECIAL_CHARS);
     
-    echo $user . "<br/>";
+    // echo $user . "<br/>";
     
     $stmt->bindParam(':uname', $user, PDO::PARAM_STR);
     $stmt->bindParam(':pword', $pass, PDO::PARAM_STR);
@@ -42,7 +42,7 @@ if(!empty($_POST)){
 
     if(empty($userinfo)){
 
-      echo"Invalid username or password entered!";
+      echo"<h2>Invalid username or password entered!<h2>";
 
     } else{
 
@@ -52,7 +52,9 @@ if(!empty($_POST)){
       $_SESSION['value'] = 'true';
       
       //session_destroy();
-      header("location:/PHP scripts/dashboard.php");
+      echo "<h2>login success!</h2>";
+      header("location:../PHP scripts/dashboard.php");
+      
     }
     // echo 'Rows: ' . ($stmt->fetchAll() == '') . "</br>";
     // echo 'result of the query: ' . $result;
@@ -64,7 +66,7 @@ if(!empty($_POST)){
 
 
 // session_unset();
-// session_destroy();
+//session_destroy();
 
 //header(location:)
 

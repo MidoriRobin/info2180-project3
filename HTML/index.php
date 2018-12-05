@@ -22,7 +22,8 @@
 	        <button><img src="../Icons/person.png" width=" 20" height=" 20">Add User</button>   <br/> 
 	        <button><img src="../Icons/notes.png" width=" 20" height=" 20">New Job</button>   <br/> 
 	        <button><img src="../Icons/power.png" width=" 20" height=" 20">Logout</button>   <br/> 
-	        <input type="text" id = "session" value = '<?php echo $svar?>' />
+	        <input type="hidden" id = "session" value = '<?php echo $_SESSION['value']?>' />
+	        <p>Current user: <?php echo $_SESSION['fName']?></p>
 	    </div>
 	    <div id="main">
 	        <p><h2>User Login</h2></p>
@@ -37,7 +38,7 @@
 				<input type="text" class="edges" name="pass" />
 				<span class="error">* <?php echo $pass;?></span>
 				<p> </p>
-		        <input type="submit" name="submit" class="submit"/>
+		        <input type="button" name="login" class="submit" value = "login"/>
 	        </form>
 	    </div>
 	    <div id="footer">
