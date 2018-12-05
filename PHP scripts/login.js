@@ -66,7 +66,7 @@ window.onload = function(){
                 //document.getElementById("result").innerHTML = searchReq.responseText;
                 mArea.innerHTML = logReq.responseText;
                 alert(logReq.responseText);
-                pgSwitch(0);
+                pgSwitch(4);
             } else{
                 console.log("there is an error");
             }

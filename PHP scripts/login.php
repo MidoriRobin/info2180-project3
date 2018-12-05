@@ -53,7 +53,7 @@ if(!empty($_POST)){
       
       //session_destroy();
       echo "<h2>login success!</h2>";
-      header("location:../PHP scripts/dashboard.php");
+      //header("location:../PHP scripts/dashboard.php");
       
     }
     // echo 'Rows: ' . ($stmt->fetchAll() == '') . "</br>";
